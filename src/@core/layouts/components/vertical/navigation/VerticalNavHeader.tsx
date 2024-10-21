@@ -128,7 +128,7 @@ const VerticalNavHeader = (props: Props) => {
         userNavMenuBranding(props)
       ) : (
         <LinkStyled href='/'>
-          <img src='/images/rockstar-logo.png' alt='Rank BPO Icon' style={{ width: '100%', margin: 'auto' }} />
+          <img src='/images/cmslogo.jpg' alt='Rank BPO Icon' style={{ width: '100%', margin: 'auto' }} />
 
           <HeaderTitle variant='h6' sx={{ ...menuCollapsedStyles, ...(navCollapsed && !navHover ? {} : { ml: 2 }) }}>
             {/* {themeConfig.templateName} */}

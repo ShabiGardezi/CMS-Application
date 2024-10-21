@@ -17,7 +17,8 @@ import axios from 'axios'
 import toast from 'react-hot-toast'
 import { MaterialReactTable, useMaterialReactTable } from 'material-react-table'
 import EditIcon from '@mui/icons-material/Edit'
-import Link from 'next/link'
+
+// import Link from 'next/link'
 import { useRouter } from 'next/router'
 import DeleteIcon from '@mui/icons-material/Delete'
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye'
@@ -290,24 +291,24 @@ const Home = () => {
     [deleting, selectedInvoice, router]
   )
 
-  const table = useMaterialReactTable({
-    columns,
-    data,
-    enableColumnActions: false,
-    enableSorting: false,
-    enableDensityToggle: false,
-    enableFullScreenToggle: false,
-    enableHiding: false
-  })
+  // const table = useMaterialReactTable({
+  //   columns,
+  //   data,
+  //   enableColumnActions: false,
+  //   enableSorting: false,
+  //   enableDensityToggle: false,
+  //   enableFullScreenToggle: false,
+  //   enableHiding: false
+  // })
 
   return (
     <>
       <Box textAlign={'right'} mb={5}>
-        <Link href={'/create'} legacyBehavior>
+        {/* <Link href={'/create'} legacyBehavior>
           <Button variant='contained'>Create +</Button>
-        </Link>
+        </Link> */}
       </Box>
-      <MaterialReactTable table={table} />
+      {/* <MaterialReactTable table={table} /> */}
       <Dialog open={openDialog} onClose={handleCancelDelete}>
         <DialogTitle>Confirm Deletion</DialogTitle>
         <DialogContent>

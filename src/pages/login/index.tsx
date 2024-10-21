@@ -148,7 +148,7 @@ const LoginPage = () => {
 
   return (
     <Box className='content-right'>
-      <img src='/images/rockstar-logo.png' style={{ width: '20%', height: '10%', margin: 10, marginTop: 15 }} />
+      <img src='/images/cmslogo.jpg' style={{ width: '20%', height: '10%', margin: 10, marginTop: 15 }} />
       {!hidden ? (
         <Box sx={{ flex: 1, display: 'flex', position: 'relative', alignItems: 'center', justifyContent: 'center' }}>
           <LoginIllustrationWrapper />
@@ -168,12 +168,12 @@ const LoginPage = () => {
         >
           <BoxWrapper>
             <Box sx={{ mb: 6 }}>
-              <TypographyStyled variant='h6'>{`Welcome to ${themeConfig.templateName} CRM! 👋🏻`}</TypographyStyled>
+              <TypographyStyled variant='h6'>{`Welcome to ${themeConfig.templateName} CMS! 👋🏻`}</TypographyStyled>
               <Typography variant='body2'>Please sign-in to your account and start the adventure</Typography>
             </Box>
             <Alert icon={false} sx={{ py: 3, mb: 6, ...bgColors.primaryLight }}>
               <Typography variant='caption' sx={{ mb: 2, display: 'block', color: 'primary.main' }}>
-                <strong>Hardwork Is Key To Success</strong> <strong>Good Luck!</strong>
+                {/* <strong>Hardwork Is Key To Success</strong> <strong>Good Luck!</strong> */}
               </Typography>
             </Alert>
             <form noValidate autoComplete='off' onSubmit={handleSubmit(onSubmit)}>

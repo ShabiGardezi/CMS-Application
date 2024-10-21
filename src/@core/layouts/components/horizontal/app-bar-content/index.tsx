@@ -41,7 +41,7 @@ const AppBarContent = (props: Props) => {
         userAppBarBranding(props)
       ) : (
         <LinkStyled href='/'>
-          <Image src='/images/rockstar-logo.png' alt='Rockstar Logo' width={260} height={100} />
+          <Image src='/images/cmslogo.jpg' alt='Rockstar Logo' width={260} height={100} />
 
           <Typography variant='h6' sx={{ ml: 2, fontWeight: 700, lineHeight: 1.2 }}>
             {/* {themeConfig.templateName} */}

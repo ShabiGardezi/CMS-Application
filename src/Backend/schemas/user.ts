@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import { UserRole, UserRoleValues } from '../../shared/enums/UserRole.enum' // Adjust path to where the enum is located
+import { UserRole, UserRoleValues } from '../../shared/enums/UserRole.enum'
 
 const userSchema = new mongoose.Schema(
   {

@@ -1,5 +1,5 @@
 import connectDb from 'src/Backend/databaseConnection'
-import UserModel from 'src/Backend/schemas/user' // Assuming you already have a user schema
+import UserModel from 'src/Backend/schemas/user'
 
 const handler = async (req: any, res: any) => {
   if (req.method === 'GET') {

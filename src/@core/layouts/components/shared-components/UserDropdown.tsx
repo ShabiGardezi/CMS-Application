@@ -53,7 +53,7 @@ const UserDropdown = (props: Props) => {
 
   const userData: any = useUserData()
 
-  const user_name = userData?.user_name
+  const username = userData?.username
   const role = userData?.role
 
   const handleDropdownOpen = (event: SyntheticEvent) => {
@@ -114,7 +114,7 @@ const UserDropdown = (props: Props) => {
             </Badge>
             <Box sx={{ display: 'flex', ml: 3, alignItems: 'flex-start', flexDirection: 'column' }}>
               <Typography sx={{ fontWeight: 600 }}>
-                {user_name} - ({role})
+                {username} - ({role})
               </Typography>
             </Box>
           </Box>

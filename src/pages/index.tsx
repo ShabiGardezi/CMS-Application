@@ -129,9 +129,9 @@ const Home = () => {
     }
   }
 
-  // Now use the populated employee field directly to get the user_name
+  // Now use the populated employee field directly to get the username
   const getEmployeeName = (invoice: any) => {
-    return invoice.employee?.user_name || 'Admin'
+    return invoice.employee?.username || 'Admin'
   }
 
   const columns = useMemo(

@@ -44,7 +44,7 @@ const DeleteUserDialog = ({ userDetails, handleDeleteUser }: any) => {
         <DialogTitle id='alert-dialog-title'>{'Confirm Delete'}</DialogTitle>
         <DialogContent>
           <DialogContentText id='alert-dialog-description'>
-            Are you sure you want to delete the user <b>{userDetails.user_name}</b>? This action cannot be undone.
+            Are you sure you want to delete the user <b>{userDetails.username}</b>? This action cannot be undone.
           </DialogContentText>
         </DialogContent>
         <DialogActions>

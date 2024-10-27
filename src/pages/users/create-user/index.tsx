@@ -54,7 +54,10 @@ const validationSchema = yup.object({
   username: yup
     .string()
     .required('Username is required')
-    .matches(/^[a-zA-Z0-9_-]{3,20}$/, 'Username must be 3-20 characters with no spaces'),
+    .matches(
+      /^[a-zA-Z0-9_-]{3,20}$/,
+      'Username must be 3-20 characters with no spaces, underscore or hypen is allowed'
+    ),
   email: yup.string().email('Invalid email format').required('Email is required'),
   password: yup.string().required('Password is required'),
   role: yup.string().required('Role is required')

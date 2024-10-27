@@ -1,4 +1,4 @@
-export const UsersRouteObj = {
+export const AdminRouteObj = {
   title: 'Users',
   icon: 'mdi:account-multiple-outline',
   children: [

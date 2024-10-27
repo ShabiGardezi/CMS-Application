@@ -8,13 +8,13 @@ import {
   FormControl,
   FormHelperText,
   Grid,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
   IconButton,
   InputAdornment,
-  InputLabel,
-  OutlinedInput,
-  TextField,
-  MenuItem,
-  Select
+  OutlinedInput
 } from '@mui/material'
 import { Controller, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -22,12 +22,7 @@ import axios from 'axios'
 import toast from 'react-hot-toast'
 import * as yup from 'yup'
 import Icon from 'src/@core/components/icon'
-import { UserRole, UserRoleValues } from '../../shared/enums/UserRole.enum'
-
-interface State {
-  password: string
-  showPassword: boolean
-}
+import { UserRoleValues } from '../../shared/enums/UserRole.enum'
 
 interface FormInputs {
   username: string
@@ -37,9 +32,15 @@ interface FormInputs {
 }
 
 const validationSchema = yup.object({
-  username: yup.string().required('Username is required'),
+  username: yup
+    .string()
+    .required('Username is required')
+    .matches(
+      /^[a-zA-Z0-9_-]{3,20}$/,
+      'Username must be 3-20 characters with no spaces, underscore or hypen is allowed'
+    ),
   email: yup.string().email('Invalid email').required('Email is required'),
-  password: yup.string().required('Password is required'),
+  password: yup.string().notRequired(),
   role: yup.string().required('Role is required')
 })
 
@@ -59,14 +60,14 @@ const UpdateUser = (props: any) => {
     mode: 'onChange'
   })
 
-  // Ensure form values are reset correctly when the userDetails prop changes
+  // Reset form values when userDetails change
   useEffect(() => {
     if (userDetails) {
       reset({
-        username: userDetails.username, // Use correct field name from database
-        email: userDetails.email,
+        username: userDetails.username || '',
+        email: userDetails.email || '',
         password: '',
-        role: userDetails.role_id || '' // Use role_id from the backend
+        role: userDetails.role_id || '' // Ensure role_id is correctly set here
       })
     }
   }, [userDetails, reset])
@@ -79,17 +80,14 @@ const UpdateUser = (props: any) => {
     if (loading) return
     try {
       setLoading(true)
-      const res = await axios.post(
-        '/api/user/update',
-        {
-          username: data.username, // Ensure correct field name
-          email: data.email,
-          password: data.password,
-          role: data.role,
-          user_id: userDetails._id
-        },
-        { headers: { authorization: localStorage.getItem('token') } }
-      )
+      const res = await axios.post('/api/user/update', {
+        username: data.username,
+        email: data.email,
+        password: data.password || undefined,
+        role: data.role,
+        user_id: userDetails._id
+      })
+
       toast.success('User updated successfully')
       props.handleUpdateUser(res.data.payload.user)
       props.setShow(false)
@@ -181,7 +179,12 @@ const UpdateUser = (props: any) => {
                   name='role'
                   control={control}
                   render={({ field }) => (
-                    <Select {...field} error={Boolean(errors.role)}>
+                    <Select
+                      {...field}
+                      error={Boolean(errors.role)}
+                      value={field.value || ''} // Ensure role value is bound correctly
+                      disabled={loading}
+                    >
                       {UserRoleValues.map(role => (
                         <MenuItem key={role} value={role}>
                           {role}
